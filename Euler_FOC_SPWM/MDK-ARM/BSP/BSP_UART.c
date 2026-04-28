@@ -10,14 +10,17 @@ extern UART_HandleTypeDef huart3;
 extern DMA_HandleTypeDef hdma_usart3_rx;
 extern DMA_HandleTypeDef hdma_usart3_tx;
 
+#define Huart &huart3
+#define Hdma_usart_rx &hdma_usart3_rx
+
 #define BUFF_SIZE	128
 uint8_t rx_buff[BUFF_SIZE];
 
 void BSP_UART_Init(void)
 {
 	 /* 需要在初始化时调用一次否则无法接收到内容 */
-  HAL_UARTEx_ReceiveToIdle_DMA(&huart3, rx_buff, BUFF_SIZE);
-  __HAL_DMA_DISABLE_IT(&hdma_usart3_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断	
+  HAL_UARTEx_ReceiveToIdle_DMA(Huart, rx_buff, BUFF_SIZE);
+  __HAL_DMA_DISABLE_IT(Hdma_usart_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断	
 }
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef * huart, uint16_t Size)
@@ -26,9 +29,9 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef * huart, uint16_t Size)
     {
         if (Size <= BUFF_SIZE)
         {
-            HAL_UARTEx_ReceiveToIdle_DMA(&huart3, rx_buff, BUFF_SIZE); // 接收完毕后重启
-            HAL_UART_Transmit(&huart3, rx_buff, Size, 0xffff);         // 将接收到的数据再发出
-            __HAL_DMA_DISABLE_IT(&hdma_usart3_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
+            HAL_UARTEx_ReceiveToIdle_DMA(Huart, rx_buff, BUFF_SIZE); // 接收完毕后重启
+            HAL_UART_Transmit(Huart, rx_buff, Size, 0xffff);         // 将接收到的数据再发出
+            __HAL_DMA_DISABLE_IT(Hdma_usart_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
             memset(rx_buff, 0, BUFF_SIZE);							   // 清除接收缓存
         }
         else  // 接收数据长度大于BUFF_SIZE，错误处理
@@ -42,8 +45,8 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef * huart)
 {
     if(huart->Instance == USART1)
     {
-		HAL_UARTEx_ReceiveToIdle_DMA(&huart3, rx_buff, BUFF_SIZE); // 接收发生错误后重启
-		__HAL_DMA_DISABLE_IT(&hdma_usart3_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
+		HAL_UARTEx_ReceiveToIdle_DMA(Huart, rx_buff, BUFF_SIZE); // 接收发生错误后重启
+		__HAL_DMA_DISABLE_IT(Hdma_usart_rx, DMA_IT_HT);		   // 手动关闭DMA_IT_HT中断
 		memset(rx_buff, 0, BUFF_SIZE);							   // 清除接收缓存
         
     }
@@ -60,20 +63,20 @@ void UART_Printf(char *format, ...) {
     if (len < 0 || len >= FORMAT_BUF_SIZE) {
         return;
     }
-	HAL_UART_Transmit(&huart3, (uint8_t*)formatBuf, len, HAL_MAX_DELAY);    
+	HAL_UART_Transmit(Huart, (uint8_t*)formatBuf, len, HAL_MAX_DELAY);    
 }
 
 
 /* 3. 重写fputc函数 (与方式A相同) */
 int fputc(int ch, FILE *f) 
 {
-    HAL_UART_Transmit(&huart3, (uint8_t*)&ch, 1, 0xFFFF);
+    HAL_UART_Transmit(Huart, (uint8_t*)&ch, 1, 0xFFFF);
     return ch;
 }
 
 
 
-#include <string.h>   // for memcpy
+  
 
 
 
@@ -120,7 +123,7 @@ int Vofa_JustFloat_Send(float *data, uint16_t num)
 
 		
     // 启动 DMA 发送（非阻塞）
-    HAL_UART_Transmit_DMA(&huart3, dma_tx_buffer, buf_size);
+    HAL_UART_Transmit_DMA(Huart, dma_tx_buffer, buf_size);
 
     return 0;
 }
