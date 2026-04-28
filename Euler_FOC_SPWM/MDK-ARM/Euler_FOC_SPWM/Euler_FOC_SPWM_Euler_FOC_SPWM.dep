@@ -1,7 +1,7 @@
 Dependencies for Project 'Euler_FOC_SPWM', Target 'Euler_FOC_SPWM': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\arm5_compiler
 F (startup_stm32g431xx.s)(0x69F03EC3)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include--pd "__UVISION_VERSION SETA 538" --pd "_RTE_ SETA 1" --pd "STM32G431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g431xx.lst --xref -o euler_foc_spwm\startup_stm32g431xx.o --depend euler_foc_spwm\startup_stm32g431xx.d)
-F (../Core/Src/main.c)(0x69F03EBF)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\main.o --omf_browse euler_foc_spwm\main.crf --depend euler_foc_spwm\main.d)
+F (../Core/Src/main.c)(0x69F09E32)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\main.o --omf_browse euler_foc_spwm\main.crf --depend euler_foc_spwm\main.d)
 I (../Core/Inc/main.h)(0x69F03EBF)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x69DF0119)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x69F03EBE)
@@ -38,13 +38,15 @@ I (../Core/Inc/dma.h)(0x69F03293)
 I (../Core/Inc/spi.h)(0x69F03EBC)
 I (../Core/Inc/usart.h)(0x69F03293)
 I (../Core/Inc/gpio.h)(0x69F03291)
-I (./BSP/BSP_UART.h)(0x69F03CB7)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
+I (./BSP/BSP_UART.h)(0x69F09B0C)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\string.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdarg.h)(0x67F7BBD2)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdlib.h)(0x67F7BBD2)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
+I (./DRIVER/DRIVER_MT6816.h)(0x69F09D81)
+I (./BSP/BSP_SPI.h)(0x69F09B4F)
 F (../Core/Src/gpio.c)(0x69F03EB9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\gpio.o --omf_browse euler_foc_spwm\gpio.crf --depend euler_foc_spwm\gpio.d)
 I (../Core/Inc/gpio.h)(0x69F03291)
 I (../Core/Inc/main.h)(0x69F03EBF)
@@ -824,14 +826,15 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
-F (.\BSP\BSP_UART.c)(0x69F03AF5)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\bsp_uart.o --omf_browse euler_foc_spwm\bsp_uart.crf --depend euler_foc_spwm\bsp_uart.d)
-I (BSP\BSP_UART.h)(0x69F03CB7)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
+F (.\BSP\BSP_UART.c)(0x69F09AF8)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\bsp_uart.o --omf_browse euler_foc_spwm\bsp_uart.crf --depend euler_foc_spwm\bsp_uart.d)
+I (BSP\BSP_UART.h)(0x69F09B0C)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\string.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdarg.h)(0x67F7BBD2)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdlib.h)(0x67F7BBD2)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdint.h)(0x67F7BBD1)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
 I (../Core/Inc/usart.h)(0x69F03293)
 I (../Core/Inc/main.h)(0x69F03EBF)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x69DF0119)
@@ -841,7 +844,6 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x69DF0119)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x69DF011A)
 I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h)(0x69DF011A)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x69DF00E0)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdint.h)(0x67F7BBD1)
 I (../Drivers/CMSIS/Include/cmsis_version.h)(0x69DF00E0)
 I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x69DF00E0)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x69DF00E0)
@@ -865,9 +867,51 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
-F (.\BSP\BSP_UART.h)(0x69F03CB7)()
-F (.\BSP\BSP_SPI.c)(0x69F09718)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\bsp_spi.o --omf_browse euler_foc_spwm\bsp_spi.crf --depend euler_foc_spwm\bsp_spi.d)
-I (BSP\BSP_SPI.h)(0x69F03FFB)
+F (.\BSP\BSP_UART.h)(0x69F09B0C)()
+F (.\BSP\BSP_SPI.c)(0x69F09B4F)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\bsp_spi.o --omf_browse euler_foc_spwm\bsp_spi.crf --depend euler_foc_spwm\bsp_spi.d)
+I (BSP\BSP_SPI.h)(0x69F09B4F)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\string.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdarg.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdlib.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdint.h)(0x67F7BBD1)
+I (../Core/Inc/spi.h)(0x69F03EBC)
+I (../Core/Inc/main.h)(0x69F03EBF)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x69DF0119)
+I (../Core/Inc/stm32g4xx_hal_conf.h)(0x69F03EBE)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x69DF0119)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x69DF011A)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h)(0x69DF011A)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x69DF00E0)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x69DF00E0)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x69DF00E0)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x69DF00E0)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x69DF00E0)
+I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x69DF011A)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x69DF0119)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stddef.h)(0x67F7BBD2)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
+I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
+F (.\BSP\BSP_SPI.h)(0x69F09B4F)()
+F (.\DRIVER\DRIVER_MT6816.c)(0x69F09D81)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\driver_mt6816.o --omf_browse euler_foc_spwm\driver_mt6816.crf --depend euler_foc_spwm\driver_mt6816.d)
+I (DRIVER\DRIVER_MT6816.h)(0x69F09D81)
 I (../Core/Inc/spi.h)(0x69F03EBC)
 I (../Core/Inc/main.h)(0x69F03EBF)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x69DF0119)
@@ -901,41 +945,12 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
-F (.\BSP\BSP_SPI.h)(0x69F03FFB)()
-F (.\DRIVER\DRIVER_MT6816.c)(0x69F03FD2)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o euler_foc_spwm\driver_mt6816.o --omf_browse euler_foc_spwm\driver_mt6816.crf --depend euler_foc_spwm\driver_mt6816.d)
-I (DRIVER\DRIVER_MT6816.h)(0x69F03C04)
-I (../Core/Inc/spi.h)(0x69F03EBC)
-I (../Core/Inc/main.h)(0x69F03EBF)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x69DF0119)
-I (../Core/Inc/stm32g4xx_hal_conf.h)(0x69F03EBE)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h)(0x69DF0119)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h)(0x69DF011A)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h)(0x69DF011A)
-I (../Drivers/CMSIS/Include/core_cm4.h)(0x69DF00E0)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdint.h)(0x67F7BBD1)
-I (../Drivers/CMSIS/Include/cmsis_version.h)(0x69DF00E0)
-I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x69DF00E0)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x69DF00E0)
-I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x69DF00E0)
-I (../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h)(0x69DF011A)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x69DF0119)
-I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stddef.h)(0x67F7BBD2)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
-I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
-F (.\DRIVER\DRIVER_MT6816.h)(0x69F03C04)()
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\string.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdarg.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdlib.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
+I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
+I (./BSP/BSP_SPI.h)(0x69F09B4F)
+F (.\DRIVER\DRIVER_MT6816.h)(0x69F09D81)()
 F (../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4lf_math.lib)(0x68EB7197)()

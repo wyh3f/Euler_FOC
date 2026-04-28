@@ -1,5 +1,12 @@
 euler_foc_spwm\bsp_spi.o: BSP\BSP_SPI.c
 euler_foc_spwm\bsp_spi.o: BSP\BSP_SPI.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h
 euler_foc_spwm\bsp_spi.o: ../Core/Inc/spi.h
 euler_foc_spwm\bsp_spi.o: ../Core/Inc/main.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
@@ -9,7 +16,6 @@ euler_foc_spwm\bsp_spi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Include/core_cm4.h
-euler_foc_spwm\bsp_spi.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Include/cmsis_version.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 euler_foc_spwm\bsp_spi.o: ../Drivers/CMSIS/Include/cmsis_armcc.h

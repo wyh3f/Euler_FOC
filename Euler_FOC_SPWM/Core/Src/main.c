@@ -26,6 +26,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "BSP_UART.h"
+#include "DRIVER_MT6816.h" 
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -102,6 +104,15 @@ int main(void)
 	printf("12345\n");
   while (1)
   {
+		
+		HAL_Delay(100);
+		
+		uint16_t buf;
+		buf=DRIVER_MT6816_Read_RawAngle();
+		float Angle;
+		Angle=DRIVER_MT6816_RawAngleToDegree(buf);
+		printf("DRIVER_MT6816:%f\n",Angle);
+		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

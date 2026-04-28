@@ -1,73 +1,35 @@
 #include "BSP_SPI.h"  
 #include "spi.h"
 
-
 extern SPI_HandleTypeDef hspi1;
 
 
-
-
-///**
-// * @brief 读取MT6816的原始14位角度值
-// * @retval 14-bit原始角度数据 (0 - 16383)
-// */
-//uint16_t MT6816_Read_RawAngle(void) {
-//    uint8_t tx_buffer[2] = {0};
-//    uint8_t rx_buffer[2] = {0};
-//    uint8_t data_high = 0;
-//    uint8_t data_low = 0;
-
-//    /* 读取高字节寄存器 (0x03) */
-//    tx_buffer[0] = MT6816_READ_ANGLE_MSB;
-//    tx_buffer[1] = 0x00;
-//    MT6816_CS_L;
-//    if (HAL_SPI_TransmitReceive(&hspi1, tx_buffer, rx_buffer, 2, 100) != HAL_OK) {
-//        MT6816_CS_H;
-//        return 0;
-//    }
-//    MT6816_CS_H;
-//    data_high = rx_buffer[1]; /* 高字节有效数据 */
-
-//    /* 读取低字节寄存器 (0x04) */
-//    tx_buffer[0] = MT6816_READ_ANGLE_LSB;
-//    tx_buffer[1] = 0x00;
-//    MT6816_CS_L;
-//    if (HAL_SPI_TransmitReceive(&hspi1, tx_buffer, rx_buffer, 2, 100) != HAL_OK) {
-//        MT6816_CS_H;
-//        return 0;
-//    }
-//    MT6816_CS_H;
-//    data_low = rx_buffer[1]; /* 低字节有效数据 */
-
-//    /* 数据拼接：高6位+低8位，形成14位角度值 */
-//    uint16_t raw_angle = ((uint16_t)data_high << 6) | (data_low >> 2);
-//    return raw_angle;
-//}
+/**
+ * @brief       SPI1 同时发送和接收数据（阻塞模式）
+ * @note        该函数基于 HAL_SPI_TransmitReceive 实现，超时时间固定为 100ms。
+ *              若传输过程中出现超时、硬件错误或 SPI 总线忙，则返回错误。
+ * @param[in]   tx   发送数据缓冲区指针（必须已分配，不能为 NULL）
+ * @param[out]  rx   接收数据缓冲区指针（必须已分配，不能为 NULL）
+ * @param[in]   size 要发送/接收的数据字节数（必须大于 0）
+ * @retval      0    传输成功
+ * @retval      1    传输失败（参数无效、超时、硬件错误或 SPI 忙）
+ */
+int BSP_SPI1_TransmitReceive(uint8_t *tx, uint8_t *rx, uint16_t size)
+{
+    if (tx == NULL || rx == NULL || size == 0) return 1; // 参数错误
+    HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(&hspi1, tx, rx, size, 100);
+    if (status != HAL_OK) {
+        // 可选：打印错误码或记录日志
+        return 1;
+    }
+    return 0;
+}
 
 
 
 
-///**
-// * @brief 将MT6816的14位原始值转换为角度（度）
-// * @param raw_angle 14位原始角度数据 (0 - 16383)
-// * @return 角度值，单位：度（浮点数）
-// */
-//float MT6816_RawAngleToDegree(uint16_t raw_angle)
-//{
-//    return (raw_angle * 360.0f) / 16384.0f;
-//}
 
 
-///**
-// * @brief 将MT6816的14位原始值转换为角度（0.01度精度）
-// * @param raw_angle 14位原始角度数据 (0 - 16383)
-// * @return 角度值 = 实际角度 * 100，例如 9000 表示 90.00度
-// */
-//uint16_t MT6816_RawAngleToCentidegree(uint16_t raw_angle)
-//{
-//    // 使用 32 位中间变量避免溢出：raw_angle * 36000 / 16384
-//    return (uint16_t)(((uint32_t)raw_angle * 36000UL) / 16384UL);
-//}
 
 
 

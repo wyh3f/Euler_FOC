@@ -37,9 +37,11 @@ euler_foc_spwm\main.o: ../Core/Inc/spi.h
 euler_foc_spwm\main.o: ../Core/Inc/usart.h
 euler_foc_spwm\main.o: ../Core/Inc/gpio.h
 euler_foc_spwm\main.o: ./BSP/BSP_UART.h
-euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
-euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\main.o: ./DRIVER/DRIVER_MT6816.h
+euler_foc_spwm\main.o: ./BSP/BSP_SPI.h

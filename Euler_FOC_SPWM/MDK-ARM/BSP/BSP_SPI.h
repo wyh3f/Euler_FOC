@@ -1,26 +1,24 @@
 #ifndef __BSP_SPI_H
 #define __BSP_SPI_H
-//#include "main.h" 
+#include "stdio.h"
+#include <string.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <math.h>
+#include "stdbool.h"
+#include <stdint.h>
 
-
-
-//uint16_t MT6816_Read_RawAngle(void);
-
-
-///**
-// * @brief 将MT6816的14位原始值转换为角度（度）
-// * @param raw_angle 14位原始角度数据 (0 - 16383)
-// * @return 角度值，单位：度（浮点数）
-// */
-//float MT6816_RawAngleToDegree(uint16_t raw_angle);
-
-///**
-// * @brief 将MT6816的14位原始值转换为角度（0.01度精度）
-// * @param raw_angle 14位原始角度数据 (0 - 16383)
-// * @return 角度值 = 实际角度 * 100，例如 9000 表示 90.00度
-// */
-//uint16_t MT6816_RawAngleToCentidegree(uint16_t raw_angle);
-
+/**
+ * @brief       SPI1 同时发送和接收数据（阻塞模式）
+ * @note        该函数基于 HAL_SPI_TransmitReceive 实现，超时时间固定为 100ms。
+ *              若传输过程中出现超时、硬件错误或 SPI 总线忙，则返回错误。
+ * @param[in]   tx   发送数据缓冲区指针（必须已分配，不能为 NULL）
+ * @param[out]  rx   接收数据缓冲区指针（必须已分配，不能为 NULL）
+ * @param[in]   size 要发送/接收的数据字节数（必须大于 0）
+ * @retval      0    传输成功
+ * @retval      1    传输失败（参数无效、超时、硬件错误或 SPI 忙）
+ */
+int BSP_SPI1_TransmitReceive(uint8_t *tx, uint8_t *rx, uint16_t size);
 
 #endif
 

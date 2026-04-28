@@ -34,3 +34,10 @@ euler_foc_spwm\driver_mt6816.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ha
 euler_foc_spwm\driver_mt6816.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h
 euler_foc_spwm\driver_mt6816.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 euler_foc_spwm\driver_mt6816.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\driver_mt6816.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\driver_mt6816.o: ./BSP/BSP_SPI.h
