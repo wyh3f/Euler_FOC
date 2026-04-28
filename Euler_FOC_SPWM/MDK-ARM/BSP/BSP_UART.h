@@ -1,8 +1,15 @@
 //BSP_UART
 #ifndef __BSP_UART_H
 #define __BSP_UART_H
-#include "main.h" 
 #include "stdio.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <math.h>
+#include "stdbool.h"
+#include "usart.h"
+
 void BSP_UART_Init(void);
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef * huart, uint16_t Size);
 void HAL_UART_ErrorCallback(UART_HandleTypeDef * huart);

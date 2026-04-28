@@ -1,5 +1,12 @@
 euler_foc_spwm\bsp_uart.o: BSP\BSP_UART.c
 euler_foc_spwm\bsp_uart.o: BSP\BSP_UART.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\bsp_uart.o: ../Core/Inc/usart.h
 euler_foc_spwm\bsp_uart.o: ../Core/Inc/main.h
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 euler_foc_spwm\bsp_uart.o: ../Core/Inc/stm32g4xx_hal_conf.h
@@ -29,12 +36,7 @@ euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_fla
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
+euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h
+euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 euler_foc_spwm\bsp_uart.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
-euler_foc_spwm\bsp_uart.o: .\BSP\BSP_UART.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
-euler_foc_spwm\bsp_uart.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
