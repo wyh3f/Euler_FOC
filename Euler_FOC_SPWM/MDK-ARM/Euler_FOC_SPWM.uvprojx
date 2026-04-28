@@ -885,6 +885,26 @@
               <FileType>5</FileType>
               <FilePath>.\BSP\BSP_TIM.h</FilePath>
             </File>
+            <File>
+              <FileName>BSP_LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_KEY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_KEY.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_KEY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_KEY.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

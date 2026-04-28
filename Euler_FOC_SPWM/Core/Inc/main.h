@@ -57,8 +57,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define KEY3_Pin GPIO_PIN_13
+#define KEY3_GPIO_Port GPIOC
 #define MT6816_CS_Pin GPIO_PIN_4
 #define MT6816_CS_GPIO_Port GPIOA
+#define LED1_Pin GPIO_PIN_4
+#define LED1_GPIO_Port GPIOC
+#define LED2_Pin GPIO_PIN_6
+#define LED2_GPIO_Port GPIOC
+#define KEY1_Pin GPIO_PIN_10
+#define KEY1_GPIO_Port GPIOC
+#define KEY2_Pin GPIO_PIN_11
+#define KEY2_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

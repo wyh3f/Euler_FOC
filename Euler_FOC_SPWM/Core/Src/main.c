@@ -29,6 +29,8 @@
 #include "BSP_UART.h"
 #include "DRIVER_MT6816.h" 
 #include "BSP_TIM.h" 
+#include "BSP_LED.h"
+#include "BSP_KEY.h" 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,18 +106,20 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	BSP_UART_Init();
-	TIM_init();
+	BSP_TIM_init();
 	printf("12345\n");
+	BSP_LED1_Write(1);
+	BSP_LED2_Write(1);
   while (1)
   {
 		
 		HAL_Delay(100);
-		
+		BSP_LED1_Flip();
 		uint16_t buf;
 		buf=DRIVER_MT6816_Read_RawAngle();
 		float Angle;
 		Angle=DRIVER_MT6816_RawAngleToDegree(buf);
-		printf("DRIVER_MT6816:%f\n",Angle);
+		printf("DRIVER_MT6816:%f,KEY:%d\n",Angle,BSP_KEY1_Read());
 		
     /* USER CODE END WHILE */
 

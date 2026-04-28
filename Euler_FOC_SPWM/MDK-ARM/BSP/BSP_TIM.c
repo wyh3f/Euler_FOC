@@ -29,7 +29,7 @@ extern TIM_HandleTypeDef htim1;
 
 
 
-void TIM_init(void)
+void BSP_TIM_init(void)
 {
 	HAL_TIM_Base_Start_IT(&htim6);
 	HAL_TIM_Base_Start_IT(&htim1);
@@ -67,23 +67,23 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
 }
 
-volatile uint16_t time_TIM6=0;
+volatile uint16_t BSP_time_TIM6=0;
 void TIM_6(TIM_HandleTypeDef *htim)
 {
 	
-	if(++time_TIM6>=1000)
+	if(++BSP_time_TIM6>=1000)
 	{
-		time_TIM6=0;
+		BSP_time_TIM6=0;
 //		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
 	}
 	
 	
 }
 
-volatile uint8_t time_TIM1=0;
+volatile uint8_t BSP_time_TIM1=0;
 void TIM_1(TIM_HandleTypeDef *htim)
 {
-	if(++time_TIM1>=100)time_TIM1=0;
+	if(++BSP_time_TIM1>=100)BSP_time_TIM1=0;
 //	TestCode_Main();
 }
 

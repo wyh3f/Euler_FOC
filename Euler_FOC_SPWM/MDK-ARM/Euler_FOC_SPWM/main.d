@@ -49,3 +49,5 @@ euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math
 euler_foc_spwm\main.o: ./DRIVER/DRIVER_MT6816.h
 euler_foc_spwm\main.o: ./BSP/BSP_SPI.h
 euler_foc_spwm\main.o: ./BSP/BSP_TIM.h
+euler_foc_spwm\main.o: ./BSP/BSP_LED.h
+euler_foc_spwm\main.o: ./BSP/BSP_KEY.h
