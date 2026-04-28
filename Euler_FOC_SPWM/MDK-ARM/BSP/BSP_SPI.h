@@ -1,5 +1,6 @@
 #ifndef __BSP_SPI_H
 #define __BSP_SPI_H
+#include "spi.h"
 #include "stdio.h"
 #include <string.h>
 #include <stdarg.h>
@@ -7,6 +8,11 @@
 #include <math.h>
 #include "stdbool.h"
 #include <stdint.h>
+
+/*
+这个SPI板机层没有初始化函数
+*/
+
 
 /**
  * @brief       SPI1 同时发送和接收数据（阻塞模式）

@@ -34,20 +34,25 @@ void TIM_init(void)
 	HAL_TIM_Base_Start_IT(&htim6);
 	HAL_TIM_Base_Start_IT(&htim1);
 	//开启PWM互补通道输出
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);		//PE8,PE9 开始产生PWM信号
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);  //在互补输出上开始PWM信号的产生
-	
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
-	
-	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
-	
-	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);		//PE8,PE9 开始产生PWM信号
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);  //在互补输出上开始PWM信号的产生
+//	
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
+//	
+//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
+//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
+//	
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
 }
+
+
 void TIM_1(TIM_HandleTypeDef *htim);
+void TIM_6(TIM_HandleTypeDef *htim);
+
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /* Prevent unused argument(s) compilation warning */
@@ -62,25 +67,23 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	}
 }
 
-uint16_t time_buff_enc=0;
-volatile uint8_t time_buf_1ms=0;
+volatile uint16_t time_TIM6=0;
 void TIM_6(TIM_HandleTypeDef *htim)
 {
 	
-	if(++time_buff_enc>=1000)
+	if(++time_TIM6>=1000)
 	{
-		time_buff_enc=0;
-		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
+		time_TIM6=0;
+//		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
 	}
 	
 	
 }
 
-
+volatile uint8_t time_TIM1=0;
 void TIM_1(TIM_HandleTypeDef *htim)
 {
-	
-	time_buf_1ms++;
-	TestCode_Main();
+	if(++time_TIM1>=100)time_TIM1=0;
+//	TestCode_Main();
 }
 

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "dma.h"
 #include "spi.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -27,7 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include "BSP_UART.h"
 #include "DRIVER_MT6816.h" 
-
+#include "BSP_TIM.h" 
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,6 +95,8 @@ int main(void)
   MX_DMA_Init();
   MX_USART3_UART_Init();
   MX_SPI1_Init();
+  MX_TIM1_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -101,6 +104,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	BSP_UART_Init();
+	TIM_init();
 	printf("12345\n");
   while (1)
   {

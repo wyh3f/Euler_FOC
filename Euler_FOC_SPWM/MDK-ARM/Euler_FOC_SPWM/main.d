@@ -30,10 +30,13 @@ euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h
+euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h
+euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
 euler_foc_spwm\main.o: ../Core/Inc/dma.h
 euler_foc_spwm\main.o: ../Core/Inc/spi.h
+euler_foc_spwm\main.o: ../Core/Inc/tim.h
 euler_foc_spwm\main.o: ../Core/Inc/usart.h
 euler_foc_spwm\main.o: ../Core/Inc/gpio.h
 euler_foc_spwm\main.o: ./BSP/BSP_UART.h
@@ -45,3 +48,4 @@ euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdb
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\main.o: ./DRIVER/DRIVER_MT6816.h
 euler_foc_spwm\main.o: ./BSP/BSP_SPI.h
+euler_foc_spwm\main.o: ./BSP/BSP_TIM.h
