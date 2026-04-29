@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "dma.h"
 #include "spi.h"
 #include "tim.h"
@@ -26,11 +27,17 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "BSP_UART.h"
-#include "DRIVER_MT6816.h" 
-#include "BSP_TIM.h" 
-#include "BSP_LED.h"
-#include "BSP_KEY.h" 
+//#include "BSP_UART.h"
+//#include "BSP_TIM.h" 
+//#include "BSP_LED.h"
+//#include "BSP_KEY.h" 
+#include "TestCode.h"
+
+//#include "DRIVER_MT6816.h" 
+//#include "DRIVER_ThreePhase_Motor.h"
+
+//#include "ALGORITHM_Clarke_Park.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,28 +106,63 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM1_Init();
   MX_TIM6_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	BSP_UART_Init();
-	BSP_TIM_init();
-	printf("12345\n");
-//	BSP_LED1_Write(1);
-//	BSP_LED2_Write(1);
+
+
+	
+	
+//	ThreePhase ABC;
+//	ThreePhase PWM;
+//	Clarke Alpha_Beta;
+//	Park QP_thet;
+//	Park _thet;
+	
+	TestCode_INIT();
+	
   while (1)
   {
 		
-		HAL_Delay(100);
-//		BSP_LED1_Flip();
-		uint16_t buf;
-		buf=DRIVER_MT6816_Read_RawAngle();
-		float Angle;
-		Angle=DRIVER_MT6816_RawAngleToDegree(buf);
-		printf("DRIVER_MT6816:%f,KEY:%d\n",Angle,BSP_KEY1_Read());
 		
+		TestCode_Main();
+		
+//		HAL_Delay(100);
+//		float buf[7];
+//		BSP_LED2_Flip();
+//		
+//		ALGORITHM_Create_ThreePhase(&ABC,2.0f,9);
+//		
+
+//		
+//		ALGORITHM_Clarke(&ABC,&Alpha_Beta);
+//		ALGORITHM_Park(&Alpha_Beta,&QP_thet);
+//		
+//		DRIVER_Park_Limit(&QP_thet);
+//		
+//		ALGORITHM_Inverse_Park(&Alpha_Beta,&QP_thet);
+//		ALGORITHM_Inverse_Clarke(&ABC,&Alpha_Beta);
+//		
+//		DRIVER_UpdateThreePhase_PWM_1(&ABC,&PWM);
+//		
+//		buf[0]=ABC.A;
+//		buf[1]=ABC.B;
+//		buf[2]=ABC.C;
+//		
+//		buf[3]=PWM.A;
+//		buf[4]=PWM.B;
+//		buf[5]=PWM.C;
+//		
+//		
+//		DRIVER_UpdateTheta_1(&_thet);
+//		buf[6]=_thet.thet;
+//		
+//		
+//		Vofa_JustFloat_Send(buf,7);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

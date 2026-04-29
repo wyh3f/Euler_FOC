@@ -24,6 +24,9 @@ euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h
+euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h
+euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h
+euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h
 euler_foc_spwm\bsp_tim.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h
@@ -42,5 +45,3 @@ euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\s
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
-euler_foc_spwm\bsp_tim.o: BSP\BSP_LED.h
-euler_foc_spwm\bsp_tim.o: ../Core/Inc/gpio.h

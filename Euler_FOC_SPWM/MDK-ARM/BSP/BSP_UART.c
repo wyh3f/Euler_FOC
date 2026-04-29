@@ -105,9 +105,11 @@ static uint8_t dma_tx_buffer[MAX_FLOAT_COUNT * 4 + 4];  // 数据区 + 帧尾
  * @retval 0: 发送成功（或已启动DMA）; -1: 
  */
 int Vofa_JustFloat_Send(float *data, uint16_t num) {
-    // 上次 DMA 未完成则直接丢弃
-    if (HAL_UART_GetState(&Huart) != HAL_UART_STATE_READY)
-        return -1;
+
+    if(Huart.gState != HAL_UART_STATE_READY)
+		{
+			return -2;
+		};
 
     uint32_t buf_size = num * 4 + 4;
     if (buf_size > sizeof(dma_tx_buffer))

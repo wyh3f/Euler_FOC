@@ -21,6 +21,9 @@ euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h
+euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h
+euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_adc.h
+euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_exti.h
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h
 euler_foc_spwm\stm32g4xx_hal_dma_ex.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h

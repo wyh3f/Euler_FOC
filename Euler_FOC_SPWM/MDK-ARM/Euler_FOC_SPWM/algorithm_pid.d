@@ -1,1 +1,9 @@
 euler_foc_spwm\algorithm_pid.o: ALGORITHM\ALGORITHM_PID.c
+euler_foc_spwm\algorithm_pid.o: ALGORITHM\ALGORITHM_PID.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\algorithm_pid.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h

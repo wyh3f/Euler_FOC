@@ -35,6 +35,7 @@
 "euler_foc_spwm\bsp_led.o"
 "euler_foc_spwm\bsp_key.o"
 "euler_foc_spwm\driver_mt6816.o"
+"euler_foc_spwm\driver_threephase_motor.o"
 "euler_foc_spwm\algorithm_clarke_park.o"
 "euler_foc_spwm\algorithm_pid.o"
 --library_type=microlib --strict --scatter "Euler_FOC_SPWM\Euler_FOC_SPWM.sct"

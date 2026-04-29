@@ -80,13 +80,12 @@ void TIM_6(TIM_HandleTypeDef *htim)
 	if(++BSP_time_TIM6>=1000)
 	{
 		BSP_time_TIM6=0;
-		BSP_LED1_Flip();
 	}
 	
 	
 }
 
-volatile uint8_t BSP_time_TIM1=0;
+volatile uint16_t BSP_time_TIM1=0;
 void TIM_1(TIM_HandleTypeDef *htim)
 {
 	if(++BSP_time_TIM1>=100)BSP_time_TIM1=0;
