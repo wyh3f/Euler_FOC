@@ -1190,6 +1190,16 @@
               <FileType>5</FileType>
               <FilePath>.\BSP\TestCode.h</FilePath>
             </File>
+            <File>
+              <FileName>BSP_ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

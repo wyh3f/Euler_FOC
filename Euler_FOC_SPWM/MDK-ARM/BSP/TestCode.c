@@ -7,6 +7,7 @@
 #include "BSP_TIM.h" 
 #include "BSP_LED.h"
 #include "BSP_KEY.h" 
+#include "BSP_ADC.h"
 
 #include "DRIVER_MT6816.h" 
 #include "DRIVER_ThreePhase_Motor.h"
@@ -20,6 +21,7 @@ void TestCode_INIT(void)
 	HAL_Delay(2500);
 	BSP_UART_Init();
 	BSP_TIM_init();
+	BSP_ADC_init();
 	BSP_LED1_Write(0);
 	BSP_LED2_Write(0);
 }

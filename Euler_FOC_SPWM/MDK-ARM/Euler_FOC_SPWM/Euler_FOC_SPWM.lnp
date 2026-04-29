@@ -38,6 +38,7 @@
 "euler_foc_spwm\bsp_led.o"
 "euler_foc_spwm\bsp_key.o"
 "euler_foc_spwm\testcode.o"
+"euler_foc_spwm\bsp_adc.o"
 "euler_foc_spwm\driver_mt6816.o"
 "euler_foc_spwm\driver_threephase_motor.o"
 "euler_foc_spwm\algorithm_clarke_park.o"

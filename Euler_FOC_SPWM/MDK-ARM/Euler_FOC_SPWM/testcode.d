@@ -51,6 +51,8 @@ euler_foc_spwm\testcode.o: BSP\BSP_TIM.h
 euler_foc_spwm\testcode.o: BSP\BSP_LED.h
 euler_foc_spwm\testcode.o: ../Core/Inc/gpio.h
 euler_foc_spwm\testcode.o: BSP\BSP_KEY.h
+euler_foc_spwm\testcode.o: BSP\BSP_ADC.h
+euler_foc_spwm\testcode.o: ../Core/Inc/adc.h
 euler_foc_spwm\testcode.o: ./DRIVER/DRIVER_MT6816.h
 euler_foc_spwm\testcode.o: ../Core/Inc/spi.h
 euler_foc_spwm\testcode.o: ./BSP/BSP_SPI.h
