@@ -13,7 +13,7 @@
 
 void BSP_ADC_init(void);
 
-
+float BSP_GET_ADC(void);
 
 
 

@@ -41,7 +41,15 @@ Park QP_thet={
 
 void TestCode_Main(void)
 {
-	
+	float buf[6];
+	if(BSP_time_TIM6>=10)
+	{
+		BSP_time_TIM6=0;
+		buf[0] = (float)BSP_GET_ADC();
+		Vofa_JustFloat_Send(buf,1);
+		
+		
+	}
 	if(BSP_time_TIM1>=4)
 	{
 		BSP_time_TIM1=0;

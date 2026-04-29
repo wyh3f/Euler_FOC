@@ -37,6 +37,8 @@ euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_ext
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h
+euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_opamp.h
+euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_opamp_ex.h
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h
 euler_foc_spwm\testcode.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h
