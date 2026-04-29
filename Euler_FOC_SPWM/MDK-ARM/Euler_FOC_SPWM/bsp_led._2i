@@ -3,4 +3,4 @@
 -ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include
 -ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include
 -D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP
--o euler_foc_spwm\stm32g4xx_hal_exti.o --omf_browse euler_foc_spwm\stm32g4xx_hal_exti.crf --depend euler_foc_spwm\stm32g4xx_hal_exti.d "../Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c"
+-o euler_foc_spwm\bsp_led.o --omf_browse euler_foc_spwm\bsp_led.crf --depend euler_foc_spwm\bsp_led.d --feedback "Euler_FOC_SPWM\Euler_FOC_SPWM.fed" "BSP\BSP_LED.c"
