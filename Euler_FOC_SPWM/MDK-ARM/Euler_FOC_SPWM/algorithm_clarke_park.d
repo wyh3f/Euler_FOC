@@ -1,0 +1,14 @@
+euler_foc_spwm\algorithm_clarke_park.o: ALGORITHM\ALGORITHM_Clarke_Park.c
+euler_foc_spwm\algorithm_clarke_park.o: ALGORITHM\ALGORITHM_Clarke_Park.h
+euler_foc_spwm\algorithm_clarke_park.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+euler_foc_spwm\algorithm_clarke_park.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h
+euler_foc_spwm\algorithm_clarke_park.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\float.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\limits.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\algorithm_clarke_park.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h

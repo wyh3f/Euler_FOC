@@ -108,13 +108,13 @@ int main(void)
 	BSP_UART_Init();
 	BSP_TIM_init();
 	printf("12345\n");
-	BSP_LED1_Write(1);
-	BSP_LED2_Write(1);
+//	BSP_LED1_Write(1);
+//	BSP_LED2_Write(1);
   while (1)
   {
 		
 		HAL_Delay(100);
-		BSP_LED1_Flip();
+//		BSP_LED1_Flip();
 		uint16_t buf;
 		buf=DRIVER_MT6816_Read_RawAngle();
 		float Angle;

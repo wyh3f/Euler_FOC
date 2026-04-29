@@ -1,0 +1,1 @@
+euler_foc_spwm\aigorithm_clarke_park.o: AIGORITHM\AIGORITHM_Clarke_Park.c

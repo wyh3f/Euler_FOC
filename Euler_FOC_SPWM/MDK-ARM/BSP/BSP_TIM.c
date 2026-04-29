@@ -34,18 +34,24 @@ void BSP_TIM_init(void)
 	HAL_TIM_Base_Start_IT(&htim6);
 	HAL_TIM_Base_Start_IT(&htim1);
 	//开启PWM互补通道输出
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);		//PE8,PE9 开始产生PWM信号
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);  //在互补输出上开始PWM信号的产生
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);		//PE8,PE9 开始产生PWM信号
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);  //在互补输出上开始PWM信号的产生
+	
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
+	
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
+	
+	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
+	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_4);
+	
+	
 //	
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
-//	
-//	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
-//	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
-//	
-//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
-//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
-//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
+	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
+	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
+	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
+	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,0);
 }
 
 
@@ -74,7 +80,7 @@ void TIM_6(TIM_HandleTypeDef *htim)
 	if(++BSP_time_TIM6>=1000)
 	{
 		BSP_time_TIM6=0;
-//		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
+		BSP_LED1_Flip();
 	}
 	
 	

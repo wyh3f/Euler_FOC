@@ -197,7 +197,7 @@
             <RoSelD>3</RoSelD>
             <RwSelD>4</RwSelD>
             <CodeSel>0</CodeSel>
-            <OptFeed>0</OptFeed>
+            <OptFeed>1</OptFeed>
             <NoZi1>0</NoZi1>
             <NoZi2>0</NoZi2>
             <NoZi3>0</NoZi3>
@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32G431xx</Define>
+              <Define>USE_HAL_DRIVER,STM32G431xx,__CC_ARM,__TARGET_FPU_VFP,__FPU_PRESENT=1U,ARM_MATH_CM4,ARM_MATH_DSP</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;../Middlewares/ST/ARM/DSP/Inc;./BSP;./DRIVER</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;../Middlewares/ST/ARM/DSP/Inc;./BSP;./DRIVER;.\ALGORITHM</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -853,76 +853,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>BSP</GroupName>
-          <Files>
-            <File>
-              <FileName>BSP_UART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\BSP_UART.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_UART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\BSP\BSP_UART.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_SPI.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\BSP_SPI.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_SPI.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\BSP\BSP_SPI.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_TIM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\BSP_TIM.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_TIM.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\BSP\BSP_TIM.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\BSP_LED.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_LED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\BSP\BSP_LED.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_KEY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\BSP_KEY.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_KEY.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\BSP\BSP_KEY.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>DRIVER</GroupName>
-          <Files>
-            <File>
-              <FileName>DRIVER_MT6816.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\DRIVER\DRIVER_MT6816.c</FilePath>
-            </File>
-            <File>
-              <FileName>DRIVER_MT6816.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\DRIVER\DRIVER_MT6816.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Middlewares/Library/DSP Library/DSP Library</GroupName>
           <GroupOption>
             <CommonProperty>
@@ -1017,6 +947,101 @@
                 </CommonProperty>
                 <FileArmAds/>
               </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>BSP_UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_UART.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_UART.h</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_SPI.h</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_TIM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_TIM.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_TIM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_TIM.h</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_LED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_LED.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_LED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_KEY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\BSP_KEY.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_KEY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP_KEY.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DRIVER</GroupName>
+          <Files>
+            <File>
+              <FileName>DRIVER_MT6816.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\DRIVER_MT6816.c</FilePath>
+            </File>
+            <File>
+              <FileName>DRIVER_MT6816.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DRIVER\DRIVER_MT6816.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ALGORITHM</GroupName>
+          <Files>
+            <File>
+              <FileName>ALGORITHM_Clarke_Park.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ALGORITHM\ALGORITHM_Clarke_Park.c</FilePath>
+            </File>
+            <File>
+              <FileName>ALGORITHM_Clarke_Park.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ALGORITHM\ALGORITHM_Clarke_Park.h</FilePath>
+            </File>
+            <File>
+              <FileName>ALGORITHM_PID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ALGORITHM\ALGORITHM_PID.c</FilePath>
+            </File>
+            <File>
+              <FileName>ALGORITHM_PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ALGORITHM\ALGORITHM_PID.h</FilePath>
             </File>
           </Files>
         </Group>
