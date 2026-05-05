@@ -19,7 +19,7 @@
 #define V_MAX (V_DC / 2.0f) 
 
 // 最大的PWM值
-#define V_PWM_MAX  200			
+#define V_PWM_MAX  195		
 // 最小的PWM值
 #define V_PWM_MIN  ((uint16_t)(V_PWM_MAX * 2 / 100))
 

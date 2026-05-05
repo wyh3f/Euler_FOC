@@ -15,7 +15,9 @@ void BSP_ADC_init(void);
 
 float BSP_GET_ADC(void);
 
+void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc);
 
+extern float ADC_IN_Value[4];
 
 #endif
 

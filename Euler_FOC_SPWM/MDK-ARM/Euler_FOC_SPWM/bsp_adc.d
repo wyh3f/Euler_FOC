@@ -47,3 +47,5 @@ euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\s
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\bsp_adc.o: BSP\BSP_UART.h
+euler_foc_spwm\bsp_adc.o: ../Core/Inc/usart.h

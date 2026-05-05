@@ -18,12 +18,14 @@
 
 void TestCode_INIT(void)
 {
-	HAL_Delay(2500);
+	
 	BSP_UART_Init();
 	BSP_TIM_init();
 	BSP_ADC_init();
 	BSP_LED1_Write(0);
 	BSP_LED2_Write(0);
+	
+	HAL_Delay(2500);
 }
 
 
@@ -33,7 +35,7 @@ ThreePhase ABC;
 ThreePhase PWM;
 Clarke Alpha_Beta;
 Park QP_thet={
-	.Q=4.0,
+	.Q=6.0,
 	.D=0,
 	.thet=0
 };
@@ -41,15 +43,18 @@ Park QP_thet={
 
 void TestCode_Main(void)
 {
-	float buf[6];
+//	float buf[6];
 	if(BSP_time_TIM6>=10)
 	{
 		BSP_time_TIM6=0;
-		buf[0] = (float)BSP_GET_ADC();
-		Vofa_JustFloat_Send(buf,1);
+		
 		
 		
 	}
+	
+//	BSP_GET_ADC();
+//		Vofa_JustFloat_Send(ADC_IN_Value,4);
+	
 	if(BSP_time_TIM1>=4)
 	{
 		BSP_time_TIM1=0;
