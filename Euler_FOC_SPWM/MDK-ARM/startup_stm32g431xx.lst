@@ -667,11 +667,11 @@ ARM Macro Assembler    Page 11
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=euler_foc_spwm\startup_stm32g431xx.d -oeuler_foc_spwm\startu
-p_stm32g431xx.o -I.\RTE\_Euler_FOC_SPWM -ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMS
-IS\Core\Include -ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Devi
-ce\ST\STM32G4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_
-VERSION SETA 538" --predefine="_RTE_ SETA 1" --predefine="STM32G431xx SETA 1" -
--predefine="_RTE_ SETA 1" --list=startup_stm32g431xx.lst startup_stm32g431xx.s
+p_stm32g431xx.o -I.\RTE\_Euler_FOC_SPWM -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\C
+MSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\
+Device\ST\STM32G4xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVIS
+ION_VERSION SETA 540" --predefine="STM32G431xx SETA 1" --predefine="_RTE_ SETA 
+1" --list=startup_stm32g431xx.lst startup_stm32g431xx.s
 
 
 
