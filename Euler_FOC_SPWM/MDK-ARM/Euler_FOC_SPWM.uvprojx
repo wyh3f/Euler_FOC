@@ -1368,6 +1368,11 @@
               <FileType>5</FileType>
               <FilePath>.\BSP\BSP_ADC.h</FilePath>
             </File>
+            <File>
+              <FileName>BSP说明文档.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\BSP\BSP说明文档.txt</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1393,6 +1398,11 @@
               <FileType>5</FileType>
               <FilePath>.\DRIVER\DRIVER_ThreePhase_Motor.h</FilePath>
             </File>
+            <File>
+              <FileName>DRIVER说明文档.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DRIVER\DRIVER说明文档.txt</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1417,6 +1427,11 @@
               <FileName>ALGORITHM_PID.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\ALGORITHM\ALGORITHM_PID.h</FilePath>
+            </File>
+            <File>
+              <FileName>ALGORITHM说明文档.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ALGORITHM\ALGORITHM说明文档.txt</FilePath>
             </File>
           </Files>
         </Group>

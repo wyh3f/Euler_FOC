@@ -1721,6 +1721,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E3E26)
 I (BSP\BSP_UART.h)(0x6A16E1E9)
 I (../Core/Inc/usart.h)(0x6A16E1D6)
 F (.\BSP\BSP_ADC.h)(0x6A16E1E9)()
+F (.\BSP\BSP说明文档.txt)(0x6A16E702)()
 F (.\DRIVER\DRIVER_MT6816.c)(0x6A16E1E9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="540" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\driver_mt6816.o --omf_browse euler_foc_spwm\driver_mt6816.crf --depend euler_foc_spwm\driver_mt6816.d)
 I (DRIVER\DRIVER_MT6816.h)(0x6A16E1E9)
 I (../Core/Inc/spi.h)(0x6A16E1D6)
@@ -1826,6 +1827,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x6A16E1E7)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6A16E1E7)
 I (./BSP/BSP_SPI.h)(0x6A16E1E9)
 F (.\DRIVER\DRIVER_ThreePhase_Motor.h)(0x6A16E1E9)()
+F (.\DRIVER\DRIVER说明文档.txt)(0x6A16E75E)()
 F (.\ALGORITHM\ALGORITHM_Clarke_Park.c)(0x6A16E1E9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\6.1.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="540" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\algorithm_clarke_park.o --omf_browse euler_foc_spwm\algorithm_clarke_park.crf --depend euler_foc_spwm\algorithm_clarke_park.d)
 I (ALGORITHM\ALGORITHM_Clarke_Park.h)(0x6A16E1E9)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6A16E1ED)
@@ -1851,4 +1853,5 @@ I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x574E3E26)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E3E26)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E3E26)
 F (.\ALGORITHM\ALGORITHM_PID.h)(0x6A16E1E9)()
+F (.\ALGORITHM\ALGORITHM说明文档.txt)(0x6A16E7C1)()
 F (../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4lf_math.lib)(0x6A16E1EE)()
