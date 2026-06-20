@@ -7,7 +7,7 @@ euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Include/core_cm4.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdint.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Include/cmsis_version.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -15,7 +15,7 @@ euler_foc_spwm\main.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 euler_foc_spwm\main.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stddef.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h
 euler_foc_spwm\main.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio_ex.h
@@ -47,9 +47,9 @@ euler_foc_spwm\main.o: ../Core/Inc/tim.h
 euler_foc_spwm\main.o: ../Core/Inc/usart.h
 euler_foc_spwm\main.o: ../Core/Inc/gpio.h
 euler_foc_spwm\main.o: ./BSP/TestCode.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-euler_foc_spwm\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdio.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\string.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdarg.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h

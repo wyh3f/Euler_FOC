@@ -8,7 +8,7 @@
 "euler_foc_spwm\spi.o"
 "euler_foc_spwm\tim.o"
 "euler_foc_spwm\usart.o"
-"euler_foc_spwm\stm32g4xx_it.o"
+"euler_foc_spwm\stm32g4xx_it_1.o"
 "euler_foc_spwm\stm32g4xx_hal_msp.o"
 "euler_foc_spwm\stm32g4xx_hal_adc.o"
 "euler_foc_spwm\stm32g4xx_hal_adc_ex.o"
