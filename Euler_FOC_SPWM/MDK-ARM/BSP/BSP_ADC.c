@@ -105,7 +105,7 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc)
 	
 //1.181391f
 //0.0008058f;
-	ADC_IN_Value[0]=ADC_IN_Value[0]+0.0001;
+	ADC_IN_Value[0]=ADC_IN_Value[0]+0.0001f;
 	if(ADC_IN_Value[0]>=1.0f)ADC_IN_Value[0]=0.0f;
 	
 	Vofa_JustFloat_Send(ADC_IN_Value,4);

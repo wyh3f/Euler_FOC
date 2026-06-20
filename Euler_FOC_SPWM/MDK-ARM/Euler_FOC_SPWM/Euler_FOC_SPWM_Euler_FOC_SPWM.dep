@@ -1360,7 +1360,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
-F (.\BSP\BSP_UART.c)(0x69F18831)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\bsp_uart.o --omf_browse euler_foc_spwm\bsp_uart.crf --depend euler_foc_spwm\bsp_uart.d)
+F (.\BSP\BSP_UART.c)(0x6A3627E1)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\bsp_uart.o --omf_browse euler_foc_spwm\bsp_uart.crf --depend euler_foc_spwm\bsp_uart.d)
 I (BSP\BSP_UART.h)(0x69F09B0C)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\string.h)(0x67F7BBD1)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdio.h)(0x67F7BBD1)
@@ -1670,7 +1670,7 @@ I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x68EB7197)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\float.h)(0x67F7BBDA)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\limits.h)(0x67F7BBD7)
 F (.\BSP\TestCode.h)(0x69F1B552)()
-F (.\BSP\BSP_ADC.c)(0x69F8840D)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\bsp_adc.o --omf_browse euler_foc_spwm\bsp_adc.crf --depend euler_foc_spwm\bsp_adc.d)
+F (.\BSP\BSP_ADC.c)(0x6A3627E1)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\bsp_adc.o --omf_browse euler_foc_spwm\bsp_adc.crf --depend euler_foc_spwm\bsp_adc.d)
 I (BSP\BSP_ADC.h)(0x69F1D549)
 I (../Core/Inc/adc.h)(0x69F1CA54)
 I (../Core/Inc/main.h)(0x69F0AA26)
@@ -1721,6 +1721,7 @@ I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
 I (BSP\BSP_UART.h)(0x69F09B0C)
 I (../Core/Inc/usart.h)(0x69F03293)
 F (.\BSP\BSP_ADC.h)(0x69F1D549)()
+F (.\BSP\BSP说明文档.txt)(0x6A3627E1)()
 F (.\DRIVER\DRIVER_MT6816.c)(0x69F09D81)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\driver_mt6816.o --omf_browse euler_foc_spwm\driver_mt6816.crf --depend euler_foc_spwm\driver_mt6816.d)
 I (DRIVER\DRIVER_MT6816.h)(0x69F09D81)
 I (../Core/Inc/spi.h)(0x69F03EBC)
@@ -1826,6 +1827,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x69DF0119)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x69DF0119)
 I (./BSP/BSP_SPI.h)(0x69F0A2B4)
 F (.\DRIVER\DRIVER_ThreePhase_Motor.h)(0x69F875FE)()
+F (.\DRIVER\DRIVER说明文档.txt)(0x6A3627E1)()
 F (.\ALGORITHM\ALGORITHM_Clarke_Park.c)(0x69F170BC)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/ARM/DSP/Inc -I ./BSP -I ./DRIVER -I ./ALGORITHM-I.\RTE\_Euler_FOC_SPWM-ID:\APP\Keil\Packs\ARM\CMSIS\6.3.0\CMSIS\Core\Include-ID:\APP\Keil\Packs\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="538" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__CC_ARM -D__TARGET_FPU_VFP -D__FPU_PRESENT="1U" -DARM_MATH_CM4 -DARM_MATH_DSP-o euler_foc_spwm\algorithm_clarke_park.o --omf_browse euler_foc_spwm\algorithm_clarke_park.crf --depend euler_foc_spwm\algorithm_clarke_park.d)
 I (ALGORITHM\ALGORITHM_Clarke_Park.h)(0x69F18583)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x68EB7197)
@@ -1851,4 +1853,5 @@ I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\math.h)(0x67F7BBD6)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdbool.h)(0x67F7BBD2)
 I (D:\APP\Keil\Keil_v5\ARM\arm5_compiler\include\stdint.h)(0x67F7BBD1)
 F (.\ALGORITHM\ALGORITHM_PID.h)(0x69F17938)()
+F (.\ALGORITHM\ALGORITHM说明文档.txt)(0x6A3627E1)()
 F (../Middlewares/ST/ARM/DSP/Lib/arm_cortexM4lf_math.lib)(0x68EB7197)()

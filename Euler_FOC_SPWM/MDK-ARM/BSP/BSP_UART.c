@@ -4,7 +4,7 @@
 
 extern UART_HandleTypeDef huart3;
 extern DMA_HandleTypeDef hdma_usart3_rx;
-extern DMA_HandleTypeDef hdma_usart3_tx;
+//extern DMA_HandleTypeDef hdma_usart3_tx;
 
 #define Huart huart3
 #define Hdma_usart_rx &hdma_usart3_rx
