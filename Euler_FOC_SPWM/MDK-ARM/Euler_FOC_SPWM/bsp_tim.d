@@ -47,3 +47,11 @@ euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\s
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\bsp_tim.o: ./ALGORITHM/ALGORITHM_Clarke_Park.h
+euler_foc_spwm\bsp_tim.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\float.h
+euler_foc_spwm\bsp_tim.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\limits.h
+euler_foc_spwm\bsp_tim.o: ./DRIVER/DRIVER_MT6816.h
+euler_foc_spwm\bsp_tim.o: ../Core/Inc/spi.h
+euler_foc_spwm\bsp_tim.o: ./BSP/BSP_SPI.h
+euler_foc_spwm\bsp_tim.o: ./DRIVER/DRIVER_ThreePhase_Motor.h

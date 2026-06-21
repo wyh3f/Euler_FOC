@@ -19,6 +19,8 @@ void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef *hadc);
 
 extern float ADC_IN_Value[4];
 
+extern float out_;
+
 #endif
 
 

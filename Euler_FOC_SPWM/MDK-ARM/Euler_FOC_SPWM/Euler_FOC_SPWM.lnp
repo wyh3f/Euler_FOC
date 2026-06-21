@@ -46,6 +46,7 @@
 "euler_foc_spwm\driver_threephase_motor.o"
 "euler_foc_spwm\algorithm_clarke_park.o"
 "euler_foc_spwm\algorithm_pid.o"
+"euler_foc_spwm\pid.o"
 "..\Middlewares\ST\ARM\DSP\Lib\arm_cortexM4lf_math.lib"
 --library_type=microlib --strict --scatter "Euler_FOC_SPWM\Euler_FOC_SPWM.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

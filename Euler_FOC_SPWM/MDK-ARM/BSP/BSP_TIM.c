@@ -51,8 +51,7 @@ void BSP_TIM_init(void)
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,0);
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,0);
 	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,0);
-	
-	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,2);
+	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_4,4190);
 	//__HAL_TIM_GET_AUTORELOAD(&htim1)/2
 }
 
@@ -87,10 +86,36 @@ void TIM_6(TIM_HandleTypeDef *htim)
 	
 }
 
+
+#include "ALGORITHM_Clarke_Park.h"
+#include "DRIVER_MT6816.h" 
+#include "DRIVER_ThreePhase_Motor.h"
+extern ThreePhase ABC;
+extern ThreePhase PWM;
+extern Clarke Alpha_Beta;
+extern Park QP_thet;
+extern ThreePhase Detection_ABC;
+extern Clarke Detection_Alpha_Beta;
+extern Park Detection_QP_thet;
+
 volatile uint16_t BSP_time_TIM1=0;
 void TIM_1(TIM_HandleTypeDef *htim)
 {
 	if(++BSP_time_TIM1>=100)BSP_time_TIM1=0;
+	
+//	DRIVER_Park_Limit(&QP_thet);
+//	DRIVER_UpdateTheta_1(&QP_thet);
+//	
+//	ALGORITHM_Inverse_Park(&Alpha_Beta,&QP_thet);
+//	ALGORITHM_Inverse_Clarke(&ABC,&Alpha_Beta);
+//	
+//	DRIVER_UpdateThreePhase_PWM_1(&ABC,&PWM);
+//	
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,(uint16_t)PWM.A);
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_2,(uint16_t)PWM.B);
+//	__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_3,(uint16_t)PWM.C);	
+	
+	
 //	TestCode_Main();
 }
 

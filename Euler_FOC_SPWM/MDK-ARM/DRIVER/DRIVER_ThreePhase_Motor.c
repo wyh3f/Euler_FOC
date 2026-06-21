@@ -19,7 +19,11 @@ void DRIVER_UpdateTheta_1(Park *qd_thet)
 	if (qd_thet->thet < 0) qd_thet->thet += 360.0f;   // 转为 0~360°
 }
 
-
+void DRIVER_UpdateTheta_User(Park *qd_thet,float add_Thet)
+{
+	qd_thet->thet=fmodf(qd_thet->thet + add_Thet,360.0f);
+	if (qd_thet->thet < 0) qd_thet->thet += 360.0f;   // 转为 0~360°
+}
 
 /*
 对应电压矢量幅值 Vs = sqrt(V_d2 + V_q2) 必须满足：

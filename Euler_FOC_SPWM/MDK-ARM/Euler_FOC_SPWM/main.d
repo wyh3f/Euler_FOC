@@ -53,3 +53,8 @@ euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stda
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\main.o: ./ALGORITHM/ALGORITHM_Clarke_Park.h
+euler_foc_spwm\main.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\float.h
+euler_foc_spwm\main.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\limits.h
+euler_foc_spwm\main.o: ./ALGORITHM/PID.h

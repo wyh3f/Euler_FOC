@@ -47,5 +47,14 @@ euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\s
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdlib.h
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\math.h
 euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\stdbool.h
+euler_foc_spwm\bsp_adc.o: BSP\BSP_LED.h
+euler_foc_spwm\bsp_adc.o: ../Core/Inc/gpio.h
+euler_foc_spwm\bsp_adc.o: BSP\BSP_TIM.h
+euler_foc_spwm\bsp_adc.o: ../Core/Inc/tim.h
 euler_foc_spwm\bsp_adc.o: BSP\BSP_UART.h
 euler_foc_spwm\bsp_adc.o: ../Core/Inc/usart.h
+euler_foc_spwm\bsp_adc.o: ./ALGORITHM/ALGORITHM_Clarke_Park.h
+euler_foc_spwm\bsp_adc.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
+euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\float.h
+euler_foc_spwm\bsp_adc.o: D:\APP\Keil\Keil_v5\ARM\arm5_compiler\Bin\..\include\limits.h
+euler_foc_spwm\bsp_adc.o: ./ALGORITHM/PID.h

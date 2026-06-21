@@ -1,5 +1,6 @@
 //DRIVER_MT6816
 #include "DRIVER_MT6816.h" 
+#include <math.h>
 
 
 
@@ -76,5 +77,50 @@ uint16_t DRIVER_MT6816_RawAngleToCentidegree(uint16_t raw_angle)
 }
 
 
+
+/**
+ * @brief 获取MT6816的电角度（浮点度数），基于机械角度转换
+ * @note  电角度 = (极对数 × 机械角度 - 机械偏移) % 360°，结果归一化至 [0, 360)
+ * @retval 电角度，单位：度（浮点数），范围 0.0 ~ 359.999...
+ */
+float DRIVER_MT6816_Get_ElectricalAngle_Degree(void)
+{
+    uint16_t raw = DRIVER_MT6816_Read_RawAngle();
+    float mech_deg = DRIVER_MT6816_RawAngleToDegree(raw);  // 机械角度 0~359.978...
+    
+    // 计算电角度（未校准）
+    float elec_deg = mech_deg * MT6816_MumberOfPolePairs;
+    // 减去机械偏移（已换算至电角度空间）
+    elec_deg -= MT6816_MECH_OFFSET * MT6816_MumberOfPolePairs;
+    // 归一化至 [0, 360)
+    elec_deg = fmodf(elec_deg, 360.0f);
+    if (elec_deg < 0.0f) {
+        elec_deg += 360.0f;
+    }
+    return elec_deg;
+}
+
+/**
+ * @brief 获取MT6816的电角度（浮点度数），直接从原始计数计算
+ * @note  电角度 = (原始计数 × 极对数 × 360 / 16384 - 偏移等效计数) % 360°
+ *        偏移等效计数 = 机械偏移 × 16384 / 360，提前计算可优化
+ * @retval 电角度，单位：度（浮点数），范围 0.0 ~ 359.999...
+ */
+float DRIVER_MT6816_Get_ElectricalAngle_Direct(void)
+{
+    uint16_t raw = DRIVER_MT6816_Read_RawAngle();
+    
+    // 将机械偏移转换为对应的原始计数偏移量（等效于在原始值上减去偏移）
+    // 偏移量 = (MT6816_MECH_OFFSET / 360) * 16384
+    const float OFFSET_COUNT = (MT6816_MECH_OFFSET * 16384.0f) / 360.0f;
+    
+    // 计算电角度：((raw - 偏移计数) * 极对数 * 360 / 16384) % 360
+    float elec_deg = ((float)raw - OFFSET_COUNT) * MT6816_MumberOfPolePairs * 360.0f / 16384.0f;
+    elec_deg = fmodf(elec_deg, 360.0f);
+    if (elec_deg < 0.0f) {
+        elec_deg += 360.0f;
+    }
+    return elec_deg;
+}
 
 
