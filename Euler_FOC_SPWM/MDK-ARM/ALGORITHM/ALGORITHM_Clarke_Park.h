@@ -129,6 +129,29 @@ void ALGORITHM_SPWM(ThreePhase *pwm,ThreePhase *abc, Clarke *alpha_beta,float Ud
  */
 void ALGORITHM_SVPWM_(ThreePhase *pwm,Clarke *alpha_beta,float Udc, float pwm_mum, float pwm_max, float pwm_min);
 
+
+
+
+
+/**
+ * @brief SVPWM 调制（空间矢量脉宽调制）：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，七段式）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于计算基本矢量作用时间
+ * @param Tpwm       PWM 周期计数最大值（即定时器自动重装载值），决定 PWM 载波周期
+ * @note  实现采用等幅值 Clarke 变换，SVPWM 算法基于参考电压矢量所在扇区，
+ *        计算相邻基本矢量的作用时间 t1、t2 以及零矢量作用时间 t0。
+ *        采用七段式对称 PWM 波形，输出比较值按中心对齐方式分配。
+ *        当 t1+t2 > Tpwm 时，自动进行过调制处理（等比例缩小 t1、t2，保持 t0=0），
+ *        以维持输出电压矢量方向不变。
+ *        函数内部包含扇区判断、矢量作用时间计算及三相比较值映射，
+ *        输出结果可直接用于定时器通道的比较寄存器。
+ *        注意：Udc 必须大于 0，否则函数直接返回并将 pwm 各相置 0。
+ *        过调制处理时，t2 由 Tpwm - t1 计算得出，确保 t1+t2 精确等于 Tpwm。
+ *        若参考电压矢量幅值为零，扇区判定结果为 0，此时所有比较值输出为 0（即 0% 占空比）。
+ */
+void ALGORITHM_SVPWM(ThreePhase *pwm, Clarke *alpha_beta,float Udc,float Tpwm ,float pwm_max, float pwm_min);
+
 #endif
 
 

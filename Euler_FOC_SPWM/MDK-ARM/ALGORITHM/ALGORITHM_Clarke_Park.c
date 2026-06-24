@@ -345,6 +345,147 @@ void ALGORITHM_SVPWM_(ThreePhase *pwm,Clarke *alpha_beta,float Udc, float pwm_mu
 
 
 
+/**
+ * @brief SVPWM 调制（空间矢量脉宽调制）：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，七段式）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于计算基本矢量作用时间
+ * @param Tpwm       PWM 周期计数最大值（即定时器自动重装载值），决定 PWM 载波周期
+ * @note  实现采用等幅值 Clarke 变换，SVPWM 算法基于参考电压矢量所在扇区，
+ *        计算相邻基本矢量的作用时间 t1、t2 以及零矢量作用时间 t0。
+ *        采用七段式对称 PWM 波形，输出比较值按中心对齐方式分配。
+ *        当 t1+t2 > Tpwm 时，自动进行过调制处理（等比例缩小 t1、t2，保持 t0=0），
+ *        以维持输出电压矢量方向不变。
+ *        函数内部包含扇区判断、矢量作用时间计算及三相比较值映射，
+ *        输出结果可直接用于定时器通道的比较寄存器。
+ *        注意：Udc 必须大于 0，否则函数直接返回并将 pwm 各相置 0。
+ *        过调制处理时，t2 由 Tpwm - t1 计算得出，确保 t1+t2 精确等于 Tpwm。
+ *        若参考电压矢量幅值为零，扇区判定结果为 0，此时所有比较值输出为 0（即 0% 占空比）。
+ */
+void ALGORITHM_SVPWM(ThreePhase *pwm, Clarke *alpha_beta,float Udc,float Tpwm ,float pwm_max, float pwm_min)
+{
+	float a=0.0f;
+	float b=0.0f;
+	float c=0.0f;
+	
+	alpha_beta->Alpha = -alpha_beta->Alpha;
+	alpha_beta->Beta = -alpha_beta->Beta;
+
+	a = alpha_beta->Beta;
+	b = square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
+	c = -square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
+	
+	uint8_t CodedValue=0;
+	
+	if(a>0.0f)CodedValue|=0x01;
+	if(b>0.0f)CodedValue|=0x02;
+	if(c>0.0f)CodedValue|=0x04;
+	
+	uint8_t sector=0;
+	
+	float s_buf= (square_root_3*Tpwm)/Udc;
+	
+	float x = s_buf*alpha_beta->Beta;
+	float y = s_buf*(square_root_3_divide_2*alpha_beta->Alpha + 0.5f*alpha_beta->Beta);
+	float z = s_buf*(-square_root_3_divide_2*alpha_beta->Alpha + 0.5f*alpha_beta->Beta);
+	
+	float t1=0;
+	float t2=0;
+	float t0=0;
+	
+	
+	switch(CodedValue)
+	{
+		case 3:
+			sector = 1;
+			t1 = -z;
+			t2 = x;
+			break;
+		case 1:
+			sector = 2;
+			t1 = z;
+			t2 = y;
+			break;
+		case 5:
+			sector = 3;
+			t1 = x;
+			t2 = -y;
+			break;
+		case 4:
+			sector = 4;
+			t1 = -x;
+			t2 = z;
+			break;
+		case 6:
+			sector = 5;
+			t1 = -y;
+			t2 = -z;
+			break;
+		case 2:
+			sector = 6;
+			t1 = y;
+			t2 = -x;
+			break;
+	}
+	
+	if(sector==0) return ;
+	
+	if (t1 + t2 > Tpwm) {
+			float sum = t1 + t2;
+			t1 = t1 * Tpwm / sum;
+			t2 = Tpwm - t1;   // 强制保证精确相等
+	}
+	
+	
+	t0 = Tpwm - (t1+t2);
+	
+	ThreePhase Tadc;
+	
+	Tadc.A = t0/2.0f;
+	Tadc.B = Tadc.A + t1/1.0f;
+	Tadc.C = Tadc.B + t2/1.0f; 
+	
+	switch(sector)
+	{
+		case 1:
+			pwm->A = Tadc.A;
+			pwm->B = Tadc.B;
+			pwm->C = Tadc.C;
+			break;
+		case 2:
+			pwm->A = Tadc.B;
+			pwm->B = Tadc.A;
+			pwm->C = Tadc.C;
+			break;
+		case 3:
+			pwm->A = Tadc.C;
+			pwm->B = Tadc.A;
+			pwm->C = Tadc.B;
+			break;
+		case 4:
+			pwm->A = Tadc.C;
+			pwm->B = Tadc.B;
+			pwm->C = Tadc.A;
+			break;
+		case 5:
+			pwm->A = Tadc.B;
+			pwm->B = Tadc.C;
+			pwm->C = Tadc.A;
+			break;
+		case 6:
+			pwm->A = Tadc.A;
+			pwm->B = Tadc.C;
+			pwm->C = Tadc.B;
+			break;
+	}
+	    // 上下限幅（pwm_min / pwm_max）
+    if (pwm->A > pwm_max) pwm->A = pwm_max;
+    if (pwm->A < pwm_min) pwm->A = pwm_min;
+    if (pwm->B > pwm_max) pwm->B = pwm_max;
+    if (pwm->B < pwm_min) pwm->B = pwm_min;
+    if (pwm->C > pwm_max) pwm->C = pwm_max;
+    if (pwm->C < pwm_min) pwm->C = pwm_min;
+}
 
 
 
