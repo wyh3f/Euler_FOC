@@ -45,16 +45,6 @@ typedef struct Park
  */
 void ALGORITHM_Create_ThreePhase(ThreePhase *abc, float AngleStep, float half_vdc);
 
-/**
- * @brief Clarke 变换（等幅值变换）: 三相静止 abc 坐标系 → 两相静止 αβ 坐标系
- * @param abc        输入三相值结构体
- * @param alpha_beta 输出 αβ 值结构体
- * @note  公式：Alpha = A
- *               Beta  = (A + 2B) / √3
- *        默认假设 A+B+C = 0（三相对称），未使用 C 相
- *        若系统不平衡，建议使用完整变换公式
- */
-void ALGORITHM_Clarke(ThreePhase *abc, Clarke *alpha_beta);
 
 /**
  * @brief Clarke 变换（等幅值变换）: 三相静止 abc 坐标系 → 两相静止 αβ 坐标系
@@ -69,17 +59,6 @@ void ALGORITHM_Clarke(ThreePhase *abc, Clarke *alpha_beta);
  */
 void ALGORITHM_Clarke_(ThreePhase *abc, Clarke *alpha_beta);
 
-///**
-// * @brief Park 变换: 两相静止 αβ 坐标系 → 两相旋转 dq 坐标系（磁场定向）
-// * @param alpha_beta 输入 αβ 值结构体
-// * @param qd_thet    输出 dq 值及电角度结构体，成员 thet 存储电角度（度），Q/D 为旋转坐标系分量
-// * @note  角度计算：θ = atan2(β, α)，然后通过正余弦进行旋转变换
-// *        变换公式：D =  α·cosθ + β·sinθ
-// *                Q = -α·sinθ + β·cosθ
-// *        为处理原点（α=β=0）时 atan2 不定，将 θ 设为 0
-// *        最终将弧度 θ 转换为度存入 qd_thet->thet
-// */
-//void ALGORITHM_Park(Clarke *alpha_beta, Park *qd_thet);
 
 /**
  * @brief Park 变换：αβ → dq
@@ -112,7 +91,44 @@ void ALGORITHM_Inverse_Park(Clarke *alpha_beta, Park *qd_thet);
 void ALGORITHM_Inverse_Clarke(ThreePhase *abc, Clarke *alpha_beta);
 
 
+/**
+ * @brief SPWM 调制：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，单极性调制）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param abc        经过克拉克变化后的三相电流，用于调试
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于将 αβ 电压归一化到 [0,1] 区间
+ * @param pwm_mum    PWM 定时器周期计数最大值（即自动重装载值），决定输出比较值的量程
+ * @param pwm_max    PWM 比较值上限（用于限制输出，通常设为 pwm_mum）
+ * @param pwm_min    PWM 比较值下限（通常设为 0）
+ * @note  实现步骤：
+ *        1. 调用逆 Clarke 变换将 αβ 转换为三相电压 abc（等幅值变换）；
+ *        2. 将每相电压除以 Udc 并偏移 0.5，得到标幺化调制波（范围 0~1）；
+ *        3. 乘以 pwm_mum 得到原始比较值；
+ *        4. 通过 pwm_max/pwm_min 进行硬限幅，防止过调制或定时器溢出。
+ *        该函数适用于常规 SPWM（正弦脉宽调制），输出为高有效电平（比较值越大，占空比越大）。
+ *        若需低有效输出，调用者可在外部取反。
+ *        当调制波幅值超过 Udc/2 时，输出将进入过调制区并限幅，可能产生谐波。
+ */
+void ALGORITHM_SPWM(ThreePhase *pwm,ThreePhase *abc, Clarke *alpha_beta,float Udc,float pwm_mum,float pwm_max,float pwm_min);
 
+/**
+ * @brief SVPWM 调制（空间矢量脉宽调制）：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，七段式）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于计算基本矢量作用时间
+ * @param Tpwm       PWM 周期计数最大值（即定时器自动重装载值），决定 PWM 载波周期
+ * @note  实现采用等幅值 Clarke 变换，SVPWM 算法基于参考电压矢量所在扇区，
+ *        计算相邻基本矢量的作用时间 t1、t2 以及零矢量作用时间 t0。
+ *        采用七段式对称 PWM 波形，输出比较值按中心对齐方式分配。
+ *        当 t1+t2 > Tpwm 时，自动进行过调制处理（等比例缩小 t1、t2，保持 t0=0），
+ *        以维持输出电压矢量方向不变。
+ *        函数内部包含扇区判断、矢量作用时间计算及三相比较值映射，
+ *        输出结果可直接用于定时器通道的比较寄存器。
+ *        注意：Udc 必须大于 0，否则函数直接返回并将 pwm 各相置 0。
+ *        过调制处理时，t2 由 Tpwm - t1 计算得出，确保 t1+t2 精确等于 Tpwm。
+ *        若参考电压矢量幅值为零，扇区判定结果为 0，此时所有比较值输出为 0（即 0% 占空比）。
+ */
+void ALGORITHM_SVPWM(ThreePhase *pwm, Clarke *alpha_beta,float Udc,float Tpwm);
 
 
 

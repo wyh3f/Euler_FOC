@@ -19,6 +19,9 @@
 #define square_root_3_divide_3 0.57735f
 // √3 ≈ 1.73205，用于逆 Clarke 变换
 #define square_root_3 1.73205f 
+// √3 /2 ≈ 0.86602
+#define square_root_3_divide_2 0.86602f
+
 
 /**
  * @brief 软件模拟三相正弦波（等幅值，三相对称）
@@ -40,21 +43,6 @@ void ALGORITHM_Create_ThreePhase(ThreePhase *abc, float AngleStep, float half_vd
     abc->C = half_vdc * arm_sin_f32(DEG2RAD(angle + 240.0f));
 }
 
-/**
- * @brief Clarke 变换（等幅值变换）: 三相静止 abc 坐标系 → 两相静止 αβ 坐标系
- * @param abc        输入三相值结构体
- * @param alpha_beta 输出 αβ 值结构体
- * @note  公式：Alpha = A
- *               Beta  = (A + 2B) / √3
- *        默认假设 A+B+C = 0（三相对称），未使用 C 相
- *        若系统不平衡，建议使用完整变换公式
- */
-void ALGORITHM_Clarke(ThreePhase *abc, Clarke *alpha_beta)
-{
-    alpha_beta->Alpha = abc->A;   // α 直接等于 A 相
-    // β = (A + 2B) / √3，其中 1/√3 已预定义为 square_root_3_divide_3
-    alpha_beta->Beta = square_root_3_divide_3 * (2 * abc->B + abc->A);
-}
 
 /**
  * @brief Clarke 变换（等幅值变换）: 三相静止 abc 坐标系 → 两相静止 αβ 坐标系
@@ -74,37 +62,7 @@ void ALGORITHM_Clarke_(ThreePhase *abc, Clarke *alpha_beta)
     alpha_beta->Beta = (abc->B - abc->C) * square_root_3_divide_3;
 }
 
-///**
-// * @brief Park 变换: 两相静止 αβ 坐标系 → 两相旋转 dq 坐标系（磁场定向）
-// * @param alpha_beta 输入 αβ 值结构体
-// * @param qd_thet    输出 dq 值及电角度结构体，成员 thet 存储电角度（度），Q/D 为旋转坐标系分量
-// * @note  角度计算：θ = atan2(β, α)，然后通过正余弦进行旋转变换
-// *        变换公式：D =  α·cosθ + β·sinθ
-// *                Q = -α·sinθ + β·cosθ
-// *        为处理原点（α=β=0）时 atan2 不定，将 θ 设为 0
-// *        最终将弧度 θ 转换为度存入 qd_thet->thet
-// */
-//void ALGORITHM_Park(Clarke *alpha_beta, Park *qd_thet)
-//{
-//    float thet_rad = 0.0f;   // 电角度（弧度）
-//    float sin_thet = 0.0f, cos_thet = 0.0f;
 
-//    // 避免 atan2f(0,0) 未定义
-//    if (alpha_beta->Alpha == 0.0f && alpha_beta->Beta == 0.0f) {
-//        thet_rad = 0.0f;
-//    } else {
-//        thet_rad = atan2f(alpha_beta->Beta, alpha_beta->Alpha);   // 返回弧度
-//    }
-//    // 使用 ARM DSP 函数计算正余弦（可替换为 sinf/cosf）
-//    sin_thet = arm_sin_f32(thet_rad);
-//    cos_thet = arm_cos_f32(thet_rad);
-
-//    // 保存电角度（度），方便调试或后续使用
-//    qd_thet->thet = RAD2DEG(thet_rad);
-//    // Park 变换
-//    qd_thet->Q = -alpha_beta->Alpha * sin_thet + alpha_beta->Beta * cos_thet;
-//    qd_thet->D =  alpha_beta->Alpha * cos_thet + alpha_beta->Beta * sin_thet;
-//}
 
 /**
  * @brief Park 变换：αβ → dq
@@ -159,12 +117,184 @@ void ALGORITHM_Inverse_Clarke(ThreePhase *abc, Clarke *alpha_beta)
     abc->C = (-square_root_3 * alpha_beta->Beta - alpha_beta->Alpha) * 0.5f;
 }
 
+// 限幅宏定义
+#define ALGORITHM_SPWM_constrain(amt,low,high) ((amt)<(low)?(low):((amt)>(high)?(high):(amt)))
 
 
 
 
+/**
+ * @brief SPWM 调制：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，单极性调制）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param abc        经过克拉克变化后的三相电流，用于调试
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于将 αβ 电压归一化到 [0,1] 区间
+ * @param pwm_mum    PWM 定时器周期计数最大值（即自动重装载值），决定输出比较值的量程
+ * @param pwm_max    PWM 比较值上限（用于限制输出，通常设为 pwm_mum）
+ * @param pwm_min    PWM 比较值下限（通常设为 0）
+ * @note  实现步骤：
+ *        1. 调用逆 Clarke 变换将 αβ 转换为三相电压 abc（等幅值变换）；
+ *        2. 将每相电压除以 Udc 并偏移 0.5，得到标幺化调制波（范围 0~1）；
+ *        3. 乘以 pwm_mum 得到原始比较值；
+ *        4. 通过 pwm_max/pwm_min 进行硬限幅，防止过调制或定时器溢出。
+ *        该函数适用于常规 SPWM（正弦脉宽调制），输出为高有效电平（比较值越大，占空比越大）。
+ *        若需低有效输出，调用者可在外部取反。
+ *        当调制波幅值超过 Udc/2 时，输出将进入过调制区并限幅，可能产生谐波。
+ */
+void ALGORITHM_SPWM(ThreePhase *pwm,ThreePhase *abc, Clarke *alpha_beta,float Udc,float pwm_mum,float pwm_max,float pwm_min)
+{
+
+	ALGORITHM_Inverse_Clarke(abc,alpha_beta);
+	
+	float a=abc->A/Udc+0.5f;
+	float b=abc->B/Udc+0.5f;
+	float c=abc->C/Udc+0.5f;
+	
+	pwm->A=a*pwm_mum;
+	pwm->B=b*pwm_mum;
+	pwm->C=c*pwm_mum;
+	
+	pwm->A=ALGORITHM_SPWM_constrain(pwm->A,pwm_min,pwm_max);
+	pwm->B=ALGORITHM_SPWM_constrain(pwm->B,pwm_min,pwm_max);
+	pwm->C=ALGORITHM_SPWM_constrain(pwm->C,pwm_min,pwm_max);
+	
+	
+}
 
 
+
+/**
+ * @brief SVPWM 调制（空间矢量脉宽调制）：由 αβ 参考电压生成三相 PWM 比较值（中心对齐，七段式）
+ * @param pwm        输出三相 PWM 比较值结构体指针（成员 A/B/C 为比较计数值）
+ * @param alpha_beta 输入 αβ 参考电压结构体指针（通常来自逆 Park 变换的输出）
+ * @param Udc        直流母线电压（单位：伏特），用于计算基本矢量作用时间
+ * @param Tpwm       PWM 周期计数最大值（即定时器自动重装载值），决定 PWM 载波周期
+ * @note  实现采用等幅值 Clarke 变换，SVPWM 算法基于参考电压矢量所在扇区，
+ *        计算相邻基本矢量的作用时间 t1、t2 以及零矢量作用时间 t0。
+ *        采用七段式对称 PWM 波形，输出比较值按中心对齐方式分配。
+ *        当 t1+t2 > Tpwm 时，自动进行过调制处理（等比例缩小 t1、t2，保持 t0=0），
+ *        以维持输出电压矢量方向不变。
+ *        函数内部包含扇区判断、矢量作用时间计算及三相比较值映射，
+ *        输出结果可直接用于定时器通道的比较寄存器。
+ *        注意：Udc 必须大于 0，否则函数直接返回并将 pwm 各相置 0。
+ *        过调制处理时，t2 由 Tpwm - t1 计算得出，确保 t1+t2 精确等于 Tpwm。
+ *        若参考电压矢量幅值为零，扇区判定结果为 0，此时所有比较值输出为 0（即 0% 占空比）。
+ */
+void ALGORITHM_SVPWM(ThreePhase *pwm, Clarke *alpha_beta,float Udc,float Tpwm)
+{
+	float a=0.0f;
+	float b=0.0f;
+	float c=0.0f;
+	
+	a = alpha_beta->Beta;
+	b = square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
+	c = -square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
+	
+	uint8_t CodedValue=0;
+	
+	if(a>0.0f)CodedValue|=0x01;
+	if(b>0.0f)CodedValue|=0x02;
+	if(c>0.0f)CodedValue|=0x04;
+	
+	uint8_t sector=0;
+	
+	float s_buf= (square_root_3*Tpwm)/Udc;
+	
+	float x = s_buf*alpha_beta->Beta;
+	float y = s_buf*(square_root_3_divide_2*alpha_beta->Alpha + alpha_beta->Beta);
+	float z = s_buf*(-square_root_3_divide_2*alpha_beta->Alpha + alpha_beta->Beta);
+	
+	float t1=0;
+	float t2=0;
+	float t0=0;
+	
+	
+	switch(CodedValue)
+	{
+		case 3:
+			sector = 1;
+			t1 = -z;
+			t2 = x;
+			break;
+		case 1:
+			sector = 2;
+			t1 = z;
+			t2 = y;
+			break;
+		case 5:
+			sector = 3;
+			t1 = x;
+			t2 = -y;
+			break;
+		case 4:
+			sector = 4;
+			t1 = -x;
+			t2 = z;
+			break;
+		case 6:
+			sector = 5;
+			t1 = -y;
+			t2 = -z;
+			break;
+		case 2:
+			sector = 6;
+			t1 = y;
+			t2 = -x;
+			break;
+	}
+	
+	if(sector==0) return ;
+	
+	if (t1 + t2 > Tpwm) {
+			float sum = t1 + t2;
+			t1 = t1 * Tpwm / sum;
+			t2 = Tpwm - t1;   // 强制保证精确相等
+	}
+	
+	
+	t0 = Tpwm - (t1+t2);
+	
+	ThreePhase Tadc;
+	
+	Tadc.A = t0/4.0f;
+	Tadc.B = Tadc.A + t1/2.0f;
+	Tadc.C = Tadc.B + t2/2.0f; 
+	
+	switch(sector)
+	{
+		case 1:
+			pwm->A = Tadc.A;
+			pwm->B = Tadc.B;
+			pwm->C = Tadc.C;
+			break;
+		case 2:
+			pwm->A = Tadc.B;
+			pwm->B = Tadc.A;
+			pwm->C = Tadc.C;
+			break;
+		case 3:
+			pwm->A = Tadc.C;
+			pwm->B = Tadc.A;
+			pwm->C = Tadc.B;
+			break;
+		case 4:
+			pwm->A = Tadc.C;
+			pwm->B = Tadc.B;
+			pwm->C = Tadc.A;
+			break;
+		case 5:
+			pwm->A = Tadc.B;
+			pwm->B = Tadc.C;
+			pwm->C = Tadc.A;
+			break;
+		case 6:
+			pwm->A = Tadc.A;
+			pwm->B = Tadc.C;
+			pwm->C = Tadc.B;
+			break;
+	}
+	
+}
 
 
 
