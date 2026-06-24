@@ -186,6 +186,9 @@ void ALGORITHM_SVPWM(ThreePhase *pwm, Clarke *alpha_beta,float Udc,float Tpwm)
 	float b=0.0f;
 	float c=0.0f;
 	
+	alpha_beta->Alpha = -alpha_beta->Alpha;
+	alpha_beta->Beta = -alpha_beta->Beta;
+
 	a = alpha_beta->Beta;
 	b = square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
 	c = -square_root_3*alpha_beta->Alpha - alpha_beta->Beta;
